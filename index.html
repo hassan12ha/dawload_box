@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <section id="android" class="bd-grid">
+        <div class="data">
+        <div class="data1">
+            <span id="close"> &times; </span>
+            <img src="lgoor.png" alt="" srcset="">
+            <span class="text">
+                <p class="p1">HASSAN WEB</p>
+            <p class="p2">Free on Google play</p>
+        </span>
+        </div>
+        <div>
+            <button type="submit" id="app_downlaod" class="btn">DOWNLOAD</button>
+        </div>
+    </div>
+    </section>
+
+    <script>
+        let section_android = document.getElementById("android");
+        
+        // لجلب بيانات عن جهاز المستخدم
+        let user_device = navigator.userAgent.toLocaleLowerCase();
+
+        //  للتحقق من إن كان مستخدم يملك جهاز يعمل بنظام اندرويد او لا
+        //user_device.includes("android") hadi ilakt android wila iphon
+        if(user_device.includes("windows")){
+
+            // لتاخير عرض الصندوق حسب المدة الذي تحدده بعد فتح مستخدم للموقعك
+            //had setTimeout dwir dyalha mili kasoze dik 3s 
+            setTimeout(()=>{
+                section_android.style.display = "block";
+            },3*1000)
+
+            // لكي يودي المستخدم إلى صفحة تحميل تطبيق عند نقر على الزر
+            let app_downlaod = document.getElementById("app_downlaod");
+            app_downlaod.addEventListener("click", ()=>{
+               window.open("https://www.hassan-achiri.tk","_blank")     
+            }); 
+        }else{
+            // لإخفاء العنصر عندما يكون مستخدم جهازه يعمل بنظام ليس بنظام اندرويد
+            section_android.style.display = "none";
+        }
+        
+        // لإخفاء العنصر عند نقر على علامة اكس
+        let close = document.getElementById("close");
+        close.addEventListener("click", ()=>{
+            section_android.style.display = "none";
+        });
+     </script>
+</body>
+</html>
